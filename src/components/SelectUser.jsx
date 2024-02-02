@@ -4,34 +4,49 @@ import { useContext, useState, useEffect} from 'react'
 import CreateNewUser from './CreateNewUser';
 
 const SelectUser = ({setSelectedUser}) => {
-    const {users, addUser} = useContext(UsersContext);
-    const [createNewUser, setCreateNewUser] = useState("");
+    const {users, addUser, deleteUser} = useContext(UsersContext);
+    const [optionButtonSelected, setOptionButtonSelected] = useState("");
+
+    console.log(users);
 
     function handleClick(buttonClicked) {
         if(buttonClicked === "CreateNewUser") {
-            setCreateNewUser("Create");
+            setOptionButtonSelected("Create");
+        }
+
+        if(buttonClicked === "DeleteUser") {
+            optionButtonSelected === "" ? setOptionButtonSelected("Delete") : setOptionButtonSelected("");
         }
     }
 
     useEffect(() => {
-        if(createNewUser !== "" && createNewUser !== "Create"){
+        if(optionButtonSelected !== "" &&
+        optionButtonSelected !== "Create" &&
+        optionButtonSelected !== "Delete"){
             addUser({
-                name: createNewUser,
+                name: optionButtonSelected,
                 expenses: [],
-                id: users[users.length-1].id + 1,
+                id: users.length > 0 ? users[users.length-1].id + 1 : 1,
             });
-            setCreateNewUser("");
+            setOptionButtonSelected("");
         }
-    }, [createNewUser]);
+    }, [optionButtonSelected]);
 
 
     return (
         <section id="select-user">
-            <label>Select a user</label>
+            <label>{optionButtonSelected === "Delete" ? "Select user you want to delete" : "Select user"}</label>
             <menu>
                 {users.map(user => {
                     return <button
-                        onClick={() => {setSelectedUser(user)}}
+                        onClick={() => {
+                            if(optionButtonSelected !== "Delete")
+                                setSelectedUser(user);
+                            else {
+                                deleteUser(user);
+                                setOptionButtonSelected("");
+                            }
+                        }}
                         key={user.id}>
                         {user.name}
                     </button>
@@ -42,10 +57,15 @@ const SelectUser = ({setSelectedUser}) => {
                 onClick={() => handleClick("CreateNewUser")}>
                     Create new user
                 </button>
+                <button
+                className={`${optionButtonSelected === "Delete" ? "highlight" : ""}`}
+                onClick={() => handleClick("DeleteUser")}>
+                    Delete User
+                </button>
             </div>
-            {createNewUser === "Create" &&
+            {optionButtonSelected === "Create" &&
             <CreateNewUser
-            setCreateNewUser={setCreateNewUser}/>}
+            setCreateNewUser={setOptionButtonSelected}/>}
         </section>
     );
 }

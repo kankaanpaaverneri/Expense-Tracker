@@ -4,6 +4,7 @@ import './App.css'
 import UsersContextProvider from './UsersContext'
 import Header from './components/Header'
 import SelectUser from './components/SelectUser'
+import UserRoot from './components/UserRoot'
 function App() {
   const [selectedUser, setSelectedUser] = useState();
 
@@ -12,7 +13,7 @@ function App() {
       <Header/>
       <UsersContextProvider>
         {!selectedUser && <SelectUser setSelectedUser={setSelectedUser}/>}
-        {selectedUser && <h1>{`User is: ${selectedUser.name}`}</h1>}
+        {selectedUser && <UserRoot selectedUser={selectedUser}/>}
       </UsersContextProvider>
     </>
   )
