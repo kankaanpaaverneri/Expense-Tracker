@@ -1,0 +1,32 @@
+#create-new-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field input {
+    border: groove;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons button {
+    cursor: pointer;
+}
+
+.buttons #create {
+    background: rgba(106, 205, 223, 0.6);
+}
+
+.buttons #create:hover {
+    background: rgba(136, 212, 225, 0.6);
+    color: black;
+}
