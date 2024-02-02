@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    margin: 1rem;
+}
+
+header h1 {
+    margin: 1rem;
+}

@@ -1,0 +1,40 @@
+#select-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#select-user label {
+    font-weight: bold;
+    margin: 1rem;
+}
+
+#select-user menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(106, 205, 223, 0.6);
+    padding: 1rem 5rem;
+    border-radius: 15px;
+}
+
+#select-user button {
+    background: none;
+    padding: 1rem;
+    margin: 1rem;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+#select-user button:hover {
+    background: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+#select-user div {
+    display: flex;
+    justify-content: center;
+}
