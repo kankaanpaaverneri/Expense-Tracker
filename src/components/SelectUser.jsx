@@ -7,15 +7,16 @@ const SelectUser = ({setSelectedUser}) => {
     const {users, addUser, deleteUser} = useContext(UsersContext);
     const [optionButtonSelected, setOptionButtonSelected] = useState("");
 
-    console.log(users);
-
     function handleClick(buttonClicked) {
         if(buttonClicked === "CreateNewUser") {
             setOptionButtonSelected("Create");
         }
 
         if(buttonClicked === "DeleteUser") {
-            optionButtonSelected === "" ? setOptionButtonSelected("Delete") : setOptionButtonSelected("");
+            if(optionButtonSelected === "")
+                setOptionButtonSelected("Delete")
+            else
+                setOptionButtonSelected("");
         }
     }
 
@@ -52,7 +53,7 @@ const SelectUser = ({setSelectedUser}) => {
                     </button>
                 })}
             </menu>
-            <div id="create-user">
+            <div id="option-buttons">
                 <button
                 onClick={() => handleClick("CreateNewUser")}>
                     Create new user

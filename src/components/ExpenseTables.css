@@ -1,0 +1,41 @@
+#expense-tables {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+table {
+    text-align: center;
+    max-width: 1rem;
+}
+
+table tr td {
+    border: none;
+    padding: 0.5rem;
+    background: rgb(186, 175, 175);
+}
+
+.user-name {
+    text-align: center;
+}
+
+.month {
+    text-align: left;
+}
+
+table button {
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+table button:hover {
+    background: rgb(217, 216, 216);
+    cursor: pointer;
+}

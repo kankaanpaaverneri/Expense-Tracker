@@ -29,13 +29,39 @@ export default function UsersContextProvider({children}) {
                     time: "Monday March 04 2024 18:45",
                     expenseAmount: 2.00,
                     category: "Restaurant",
+                },
+                {
+                    time: "Tuesday March 05 2024 18:45",
+                    expenseAmount: 2.00,
+                    category: "Restaurant",
                 }
             ],
             id: 1
         },
         {
             name: "Nea",
-            expenses: [],
+            expenses: [
+                {
+                    time: "Friday January 02 2024 18:11",
+                    expenseAmount: 18.99,
+                    category: "Restaurant"
+                },
+                {
+                    time: "Friday Feburary 02 2024 18:11",
+                    expenseAmount: 55.55,
+                    category: "Utilities"
+                },
+                {
+                    time: "Monday May 05 2024 15:15",
+                    expenseAmount: 10,
+                    category: "Entertainment"
+                },
+                {
+                    time: "Monday June 05 2024 18:45",
+                    expenseAmount: 10.00,
+                    category: "Restaurant",
+                }
+            ],
             id: 2
         }
     ]);
