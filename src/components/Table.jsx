@@ -1,7 +1,6 @@
 
 
 function isMonthChanged(months, currentMonth) {
-    
     const foundMonth = months.find(month => {
         return currentMonth === month;
     });
@@ -11,7 +10,7 @@ function isMonthChanged(months, currentMonth) {
         return true;
     }
 
-    //Month isn't changed
+    //Month hasn't changed
     return false;
 }
 
@@ -20,9 +19,10 @@ const Table = ({expenses, currentMonth, startMonth}) => {
     return (
         <table key={currentMonth}>
             {expenses.map((expense, expenseIndex) => {
-                const [weekday, month, ...rest] = expense.time.split(" ");  
+                const [_, month, ...rest] = expense.time.split(" ");  
                 return month === currentMonth && <tbody key={expenseIndex}>
                     {
+                    //Makes sure that header is outputed if month is changed
                      isMonthChanged(months, month) && <tr>
                         <td><b>Expense</b></td>
                         <td><b>Time</b></td>

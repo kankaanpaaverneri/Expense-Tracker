@@ -16,14 +16,16 @@ const ExpenseTables = ({}) => {
                     <h1 className='user-name'>{user.name}</h1>
                     <h1>{new Date().getFullYear()}</h1>
                     {months.map((month, monthIndex) => {
-                        return <div key={monthIndex}>
-                            <h1>{month}</h1>
-                            <Table
-                            expenses={user.expenses}
-                            currentMonth={month}
-                            startMonth={startMonth}
-                            />
-                        </div>
+                        return (
+                            <div key={monthIndex}>
+                                <h1>{month}</h1>
+                                <Table
+                                expenses={user.expenses}
+                                currentMonth={month}
+                                startMonth={startMonth}
+                                />
+                            </div>
+                        );
                     })}
                 </div>
             })}
