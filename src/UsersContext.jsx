@@ -9,7 +9,28 @@ export default function UsersContextProvider({children}) {
     const [users, setUsers] = useState([
         {
             name: "Verneri",
-            expenses: [],
+            expenses: [
+                {
+                    time: "Friday Feburary 02 2024 18:11",
+                    expenseAmount: 89.99,
+                    category: "Restaurant"
+                },
+                {
+                    time: "Friday Feburary 02 2024 18:11",
+                    expenseAmount: 89.99,
+                    category: "Restaurant"
+                },
+                {
+                    time: "Monday Feburary 05 2024 15:15",
+                    expenseAmount: 50.57,
+                    category: "Entertainment"
+                },
+                {
+                    time: "Monday March 04 2024 18:45",
+                    expenseAmount: 2.00,
+                    category: "Restaurant",
+                }
+            ],
             id: 1
         },
         {

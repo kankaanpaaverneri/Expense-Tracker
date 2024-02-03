@@ -1,0 +1,10 @@
+#expense-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#expense-table table {
+    text-align: center;
+}
