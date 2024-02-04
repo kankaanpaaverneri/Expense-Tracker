@@ -1,0 +1,32 @@
+table {
+    text-align: center;
+    margin: 1rem 0;
+    table-layout: fixed;
+    width: 100%;
+}
+
+table td button {
+    background: rgb(219, 217, 217);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+table td button:hover {
+    background: rgb(192, 191, 191);
+    cursor: pointer;
+}
+
+@media (max-width: 300px) {
+    table {
+        margin: 0;
+        table-layout: fixed;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    table td button {
+        padding: 0.2rem 0.5rem;
+        font-size: 12px;
+    }
+}

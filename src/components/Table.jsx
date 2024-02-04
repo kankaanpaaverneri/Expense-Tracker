@@ -1,32 +1,16 @@
+import './Table.css'
 
-
-function isMonthChanged(months, currentMonth) {
-    const foundMonth = months.find(month => {
-        return currentMonth === month;
-    });
-    //Month Is changed
-    if(!foundMonth) {
-        months.push(currentMonth);
-        return true;
-    }
-
-    //Month hasn't changed
-    return false;
-}
-
-const Table = ({expenses, currentMonth, startMonth}) => {
-    const months = [];
+const Table = ({expenses, currentMonth}) => {
     return (
         <table key={currentMonth}>
             {expenses.map((expense, expenseIndex) => {
-                const [_, month, ...rest] = expense.time.split(" ");  
-                return month === currentMonth && <tbody key={expenseIndex}>
+                return <tbody key={expenseIndex}>
                     {
-                    //Makes sure that header is outputed if month is changed
-                     isMonthChanged(months, month) && <tr>
+                     expenseIndex === 0 && <tr>
                         <td><b>Expense</b></td>
                         <td><b>Time</b></td>
                         <td><b>Category</b></td>
+                        <td><b>Option</b></td>
                     </tr>
                     }
                     <tr>
