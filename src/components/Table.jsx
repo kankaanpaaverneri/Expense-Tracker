@@ -1,9 +1,11 @@
 import './Table.css'
 
 const Table = ({expenses, currentMonth}) => {
+    let sum = 0;
     return (
         <table key={currentMonth}>
             {expenses.map((expense, expenseIndex) => {
+                sum += expense.expenseAmount;
                 return <tbody key={expenseIndex}>
                     {
                      expenseIndex === 0 && <tr>
@@ -21,6 +23,14 @@ const Table = ({expenses, currentMonth}) => {
                     </tr>
                 </tbody>
             })}
+            {
+                expenses.length > 0 &&
+                <tbody>
+                    <tr>
+                        <td><b>{sum.toFixed(2)}</b></td>
+                    </tr>
+                </tbody>
+            }
         </table>
     );
 }
