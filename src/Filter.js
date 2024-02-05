@@ -8,7 +8,7 @@ export function filterByMonth(expenses, filterMonth) {
 }
 
 export function getAllExpenseCategorys(expenses) {
-    const categorys = [];
+    const categorys = ["No Filter"];
     expenses.forEach(expense => {
         if(categorys.length === 0)
             categorys.push(expense.category);

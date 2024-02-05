@@ -13,10 +13,15 @@ const FilterComponent = ({categorys, setOptionSelect, userId}) => {
         <section id="filter-component">
             <label>Filter by: </label>
             <select>
-                <option onClick={() => onOptionSelect("No filter")}>No filter</option>
                 {
-                    categorys.map((category, index) => {
-                        return <option onClick={() => onOptionSelect(category)} key={index}>{category}</option>
+                    categorys.map((category) => {
+                        return (
+                            <option 
+                                onClick={() => onOptionSelect(category)}
+                                key={category}>
+                                {category}
+                            </option>
+                        );
                     })
                 }
             </select>

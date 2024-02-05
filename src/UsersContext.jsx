@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { getAllExpenseCategorys } from "./Filter";
 
 export const UsersContext = createContext({
     users: [],
@@ -90,7 +91,7 @@ export default function UsersContextProvider({children}) {
     const contextValue = {
         users,
         addUser,
-        deleteUser
+        deleteUser,
     }
 
     return <UsersContext.Provider value={contextValue}>
