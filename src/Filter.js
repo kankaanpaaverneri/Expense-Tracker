@@ -19,3 +19,10 @@ export function getAllExpenseCategorys(expenses) {
     });
     return categorys;
 }
+
+export function filterByCategory(expenses, category) {
+    return expenses.filter((expense) => {
+        if(expense.category === category)
+            return expense;
+    });
+}

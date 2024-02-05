@@ -16,7 +16,7 @@ const Table = ({expenses, currentMonth}) => {
                     </tr>
                     }
                     <tr>
-                        <td>{expense.expenseAmount}</td>
+                        <td>{expense.expenseAmount.toFixed(2)}€</td>
                         <td>{expense.time}</td>
                         <td>{expense.category}</td>
                         <td><button>Delete</button></td>
@@ -27,7 +27,7 @@ const Table = ({expenses, currentMonth}) => {
                 expenses.length > 0 &&
                 <tbody>
                     <tr>
-                        <td><b>{sum.toFixed(2)}</b></td>
+                        <td><b>{sum.toFixed(2)}€</b></td>
                     </tr>
                 </tbody>
             }

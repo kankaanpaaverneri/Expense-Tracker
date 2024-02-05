@@ -1,20 +1,22 @@
 import './FilterComponent.css'
 
-const FilterComponent = ({categorys}) => {
-    console.log("categorys: ", categorys);
+const FilterComponent = ({categorys, setOptionSelect}) => {
+    function onOptionSelect(identifier) {
+        setOptionSelect(identifier);
+    }
     return (
         <section id="filter-component">
             <label>Filter by: </label>
             <select>
-                <option>No filter</option>
+                <option onClick={() => onOptionSelect("No filter")}>No filter</option>
                 {
-                    categorys.map(category => {
-                        return <option>{category}</option>
+                    categorys.map((category, index) => {
+                        return <option onClick={() => onOptionSelect(category)} key={index}>{category}</option>
                     })
                 }
             </select>
         </section>
     );
-}
+};
  
 export default FilterComponent;
