@@ -1,23 +1,30 @@
 import { getStartMonth, splitMonths } from '../Time';
 import Table from './Table';
 import { filterByCategory, filterByMonth } from '../Filter';
+import { useState } from 'react';
+
 const UserMonths = ({user, filterOption}) => {
+
     const startMonth = getStartMonth(user.expenses[0]);
     const userMonths = splitMonths(startMonth);
+
+    const [deleteExpense, setDeleteExpense] = useState("");
+
     return (
         userMonths.map((month, monthIndex) => {
-            const filteredExpense = filterByMonth(user.expenses, month);
+            let filteredExpense;
+            filteredExpense = filterByMonth(user.expenses, month);
 
-            let expensesByCategory;
-            if(filterOption !== "No filter")
-               expensesByCategory = filterByCategory(filteredExpense, filterOption);
+            if(filterOption !== "No filter" && user.id === filterOption.userId)
+               filteredExpense = filterByCategory(filteredExpense, filterOption.filter);
 
             return (
                 <div className='tables' key={monthIndex}>
                     <h1>{month}</h1>
                     <Table
-                    expenses={expensesByCategory ? expensesByCategory : filteredExpense}
+                    expenses={filteredExpense}
                     currentMonth={month}
+                    setDeleteExpense={setDeleteExpense}
                     />
                 </div>
             );

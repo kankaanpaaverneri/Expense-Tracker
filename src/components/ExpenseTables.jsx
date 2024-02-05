@@ -8,7 +8,10 @@ import UserMonths from './UserMonths';
 
 const ExpenseTables = () => {
     const {users} = useContext(UsersContext);
-    const [filterOption, setFilterOption] = useState("No filter");
+    const [filterOption, setFilterOption] = useState({
+        userId: 0,
+        filter: "No filter",
+    });
 
     return (
         <section id="expense-tables">
@@ -18,6 +21,7 @@ const ExpenseTables = () => {
                         <FilterComponent
                         categorys={getAllExpenseCategorys(user.expenses)}
                         setOptionSelect={setFilterOption}
+                        userId={user.id}
                         />
                         <h1 className='user-name'>{user.name}</h1>
                         <h1>{new Date().getFullYear()}</h1>

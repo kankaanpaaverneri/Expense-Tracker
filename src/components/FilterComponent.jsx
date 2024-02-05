@@ -1,8 +1,13 @@
 import './FilterComponent.css'
 
-const FilterComponent = ({categorys, setOptionSelect}) => {
+const FilterComponent = ({categorys, setOptionSelect, userId}) => {
     function onOptionSelect(identifier) {
-        setOptionSelect(identifier);
+        setOptionSelect(() => {
+            return {
+                userId: userId,
+                filter: identifier
+            }
+        });
     }
     return (
         <section id="filter-component">
