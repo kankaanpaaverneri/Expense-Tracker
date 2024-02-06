@@ -1,0 +1,45 @@
+#add-expense {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(106, 205, 223, 0.6);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.input-field {
+    display: flex;
+}
+
+#add-expense label {
+    margin: 1rem;
+}
+
+
+#add-expense select {
+    margin: 1rem;
+}
+
+#add-expense button {
+    padding: 0.5rem 2rem;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#add-expense button:hover {
+    background: rgb(63, 62, 62);
+    cursor: pointer;
+}
+
+.input-field input {
+    max-width: 4rem;
+    border: none;
+}
+
+.input-field select {
+    border: none;
+}

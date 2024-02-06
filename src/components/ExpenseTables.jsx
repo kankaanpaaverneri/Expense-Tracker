@@ -20,7 +20,7 @@ const ExpenseTables = () => {
         filter: "No filter",
     });
 
-    const [deleteExpense, setDeleteExpense] = useState(undefined);
+    const [deleteExpense, setDeleteExpense] = useState();
 
     return (
         <section id="expense-tables">
