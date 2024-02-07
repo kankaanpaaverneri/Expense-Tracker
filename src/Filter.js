@@ -26,3 +26,12 @@ export function filterByCategory(expenses, category) {
             return expense;
     });
 }
+
+export function getCurrentCategorys(expenseCategorys) {
+    const uniqueCategorys = expenseCategorys.reduce((accumulator, current) => {
+        if(!accumulator.includes(current))
+            accumulator.push(current)
+        return accumulator;
+    }, [])
+    return uniqueCategorys;
+}

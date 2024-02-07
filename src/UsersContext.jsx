@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAllExpenseCategorys } from "./Filter";
+import { getCurrentCategorys } from "./Filter";
 
 export const UsersContext = createContext({
     users: [],
@@ -37,6 +37,7 @@ export default function UsersContextProvider({children}) {
                     category: "Restaurant",
                 }
             ],
+            currentCategorys: [],
             id: 1
         },
         {
@@ -63,6 +64,7 @@ export default function UsersContextProvider({children}) {
                     category: "Restaurant",
                 }
             ],
+            currentCategorys: [],
             id: 2
         }
     ]);
@@ -88,11 +90,22 @@ export default function UsersContextProvider({children}) {
         });
     }
 
+    function updateCurrentCategorys(users) {
+        users.forEach(user => {
+            const categorys = user.expenses.map(expense => expense.category);
+            user.currentCategorys = ["No filter", ...getCurrentCategorys(categorys)];
+        })
+    }
+
+    updateCurrentCategorys(users);
+
     const contextValue = {
         users,
         addUser,
         deleteUser,
+        
     }
+    
 
     return <UsersContext.Provider value={contextValue}>
         {children}
