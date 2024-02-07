@@ -4,7 +4,7 @@ import FilterComponent from './FilterComponent';
 import { filterByCategory, filterByMonth, getCurrentCategorys } from '../Filter';
 import { useEffect, useState } from 'react';
 
-const UserMonths = ({user}) => {
+const UserMonths = ({user, updateUser}) => {
     
     const [expenses, setExpenses] = useState(user.expenses);
     const [filterOption, setFilterOption] = useState({
@@ -34,6 +34,8 @@ const UserMonths = ({user}) => {
     useEffect(() => {
         const categories = expenses.map(expense => expense.category);
         setCurrentCategorys(["No filter", ...getCurrentCategorys(categories)]);
+        //Need to update the original user state
+        updateUser(user.id, expenses, categories);
     }, [expenses]);
 
     if(expenses.length === 0)

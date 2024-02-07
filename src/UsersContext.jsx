@@ -72,6 +72,17 @@ export default function UsersContextProvider({children}) {
     function addUser(newUser) {
         setUsers((prevUsers) => [...prevUsers, newUser]);
     }
+
+    function updateUser(userId, expenses = [], categories = []) {
+        setUsers(prevUsers => {
+            const updatedUsers = [...prevUsers];
+            const userToBeUpdated = updatedUsers.find(user => user.id === userId);
+            userToBeUpdated.expenses = [...expenses];
+            userToBeUpdated.currentCategorys = [...categories];
+            return updatedUsers;
+        });
+    }
+
     function deleteUser(userToBeDeleted) {
         setUsers(prevUsers => {
             const foundUser = prevUsers.find(user => user.id === userToBeDeleted.id);
@@ -106,7 +117,7 @@ export default function UsersContextProvider({children}) {
         users,
         addUser,
         deleteUser,
-        
+        updateUser
     }
     
 
