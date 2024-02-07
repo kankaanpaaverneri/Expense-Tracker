@@ -90,14 +90,17 @@ export default function UsersContextProvider({children}) {
         });
     }
 
-    function updateCurrentCategorys(users) {
-        users.forEach(user => {
-            const categorys = user.expenses.map(expense => expense.category);
-            user.currentCategorys = ["No filter", ...getCurrentCategorys(categorys)];
-        })
+    function updateUserCategories(user) {
+        const categorys = user.expenses.map(expense => expense.category);
+        user.currentCategorys = ["No filter", ...getCurrentCategorys(categorys)];
     }
 
-    updateCurrentCategorys(users);
+    function updateAllUsersCategories(users) {
+        users.forEach(user => updateUserCategories(user));
+    }
+
+    updateAllUsersCategories(users);
+
 
     const contextValue = {
         users,

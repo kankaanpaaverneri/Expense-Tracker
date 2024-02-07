@@ -1,6 +1,6 @@
 import './Table.css'
 
-const Table = ({expenses, currentMonth}) => {
+const Table = ({expenses, currentMonth, onDelete}) => {
     let sum = 0;
     return (
         <table key={currentMonth}>
@@ -19,7 +19,7 @@ const Table = ({expenses, currentMonth}) => {
                         <td>{expense.expenseAmount.toFixed(2)}€</td>
                         <td>{expense.time}</td>
                         <td>{expense.category}</td>
-                        <td><button>Delete</button></td>
+                        <td><button onClick={() => onDelete(expense)}>Delete</button></td>
                     </tr>
                 </tbody>
             })}

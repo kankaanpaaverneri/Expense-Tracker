@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './FilterComponent.css'
 
 const FilterComponent = ({categorys, setFilterOption, userId}) => {
@@ -10,15 +9,12 @@ const FilterComponent = ({categorys, setFilterOption, userId}) => {
             }
         });
     }
-
-    const [currentCategorys, setCurrentCategorys] = useState(categorys);
-    console.log("currentCategorysState: ", currentCategorys);
     return (
         <section id="filter-component">
             <label>Filter by: </label>
             <select>
                 {
-                    currentCategorys.map((category) => {
+                    categorys.map((category) => {
                         return (
                             <option 
                                 onClick={() => onOptionSelect(category)}
