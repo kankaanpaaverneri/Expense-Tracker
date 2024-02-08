@@ -14,3 +14,8 @@ export function splitMonths(userMonth) {
     copyOfMonths.splice(0, index);
     return copyOfMonths;
 }
+
+export function getCurrentTime() {
+    const currentTime = new Date();
+    return `${weekdays[currentTime.getDay()]} ${months[currentTime.getMonth()]} ${currentTime.getDate()} ${currentTime.getFullYear()} ${currentTime.getHours()}:${currentTime.getMinutes()}`;
+}

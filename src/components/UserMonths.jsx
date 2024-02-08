@@ -32,7 +32,7 @@ const UserMonths = ({user, updateUser}) => {
     }
 
     useEffect(() => {
-        const categories = expenses.map(expense => expense.category);
+        const categories = user.expenses.map(expense => expense.category);
         setCurrentCategorys(["No filter", ...getCurrentCategorys(categories)]);
         //Need to update the original user state
         updateUser(user.id, expenses, categories);

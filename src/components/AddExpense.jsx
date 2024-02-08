@@ -1,32 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { UsersContext } from '../UsersContext';
 import './AddExpense.css'
 import AddNewCategory from './AddNewCategory';
+import { getCurrentTime } from '../Time';
+import { getCurrentCategorys } from '../Filter';
 
 const AddExpense = ({selectedUser}) => {
-    const [categorySelected, setCategorySelected] = useState("");
+    const {updateUser} = useContext(UsersContext);
+    const expenseAmount = useRef();
+    const [categories, setCategories] = useState(selectedUser.currentCategorys.slice(1));
+    const [categorySelected, setCategorySelected] = useState(categories[0]);
 
     function handleCategorySelect(identifier) {
         setCategorySelected(identifier);
     }
 
+    function handleAddingNewExpense() {
+        selectedUser.expenses.push({
+            time: getCurrentTime(),
+            expenseAmount: Number(expenseAmount.current.value),
+            category: categorySelected,
+        });
+        
+        setCategories(prevCategories => {
+            const updatedCategories = prevCategories.filter(category => {
+                if(category !== "Add new category") return category;
+            });
+
+            updatedCategories.push(categorySelected);
+            const uniqueCategories = getCurrentCategorys(updatedCategories);
+            return uniqueCategories;
+        });
+    }
+    
     useEffect(() => {
-        if(!selectedUser.currentCategorys.includes(categorySelected) && categorySelected !== "Add new category")
-        {
-            selectedUser.currentCategorys.push(categorySelected);
-            setCategorySelected(selectedUser.currentCategorys[0]);
-        }
-    }, [categorySelected]);
-
-
-    const categories = selectedUser.currentCategorys.slice(1);
+        updateUser(selectedUser.id, selectedUser.expenses, selectedUser.currentCategorys.slice(1));
+    }, [categories]);
 
     return (
         <section id="add-expense">
             <div className="input-field">
-                <input type="number" />
-                <select key={selectedUser.currentCategorys.length}>
+                <input ref={expenseAmount} type="number" />
+                <select>
                     {
-                        categories.map(category => {
+                        categories.map((category) => {
                             return (
                                 <option
                                 onClick={() => handleCategorySelect(category)} key={category}>
@@ -36,17 +53,24 @@ const AddExpense = ({selectedUser}) => {
                         })
                     }
                     <option
-                    onClick={() => handleCategorySelect("Add new category")}
-                    key={"Add new category"}>Add new category</option>
+                        onClick={() => handleCategorySelect("Add new category")}
+                        key={"Add new category"}>Add new category</option>
                 </select>
             </div>
             {
             categorySelected === "Add new category" &&
-            <AddNewCategory setCategorySelected={setCategorySelected}/>
+            <AddNewCategory
+            setCategorySelected={setCategorySelected}
+            categories={categories}
+            setCategories={setCategories}
+            />
             }
-            <div className="submit-button">
-                <button>Add expense</button>
+            {
+                categorySelected !== "Add new category" &&
+                <div className="submit-button">
+                <button onClick={() => handleAddingNewExpense()}>Add expense</button>
             </div>
+            }
         </section>
     );
 }
