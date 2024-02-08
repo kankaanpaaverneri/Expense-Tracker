@@ -7,7 +7,6 @@ import UserMonths from './UserMonths';
 
 const ExpenseTables = () => {
     const {users, updateUser} = useContext(UsersContext);
-    console.log(users);
 
     return (
         <section id="expense-tables">

@@ -1,0 +1,51 @@
+#add-expense {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+#add-expense label {
+    
+}
+
+
+
+#add-expense .input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+#add-expense .submit-button {
+    display: flex;
+}
+
+#add-expense select {
+    border: none;
+    margin: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 5px;
+}
+
+#add-expense select:hover {
+    background: rgb(188, 188, 188);
+    cursor: pointer;
+}
+
+#add-expense option {
+    cursor: pointer;
+}
+
+#add-expense button {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#add-expense button:hover {
+    background: rgb(82, 82, 82);
+    cursor: pointer;
+}

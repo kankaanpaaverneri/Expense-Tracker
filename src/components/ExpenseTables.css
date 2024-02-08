@@ -1,6 +1,7 @@
 #expense-tables {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .user-expense-section {

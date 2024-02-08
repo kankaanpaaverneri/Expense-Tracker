@@ -1,0 +1,21 @@
+#add-new-category {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+    background: rgba(106, 205, 223, 0.6);
+    border-radius: 5px;
+}
+
+#add-new-category {
+    padding: 1rem;
+}
+
+#add-new-category label {
+    margin: 1rem;
+}
+
+#add-new-category input {
+    margin: 1rem;
+}
