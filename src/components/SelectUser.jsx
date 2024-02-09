@@ -2,9 +2,10 @@ import './SelectUser.css'
 import { UsersContext } from '../UsersContext'
 import { useContext, useState, useEffect} from 'react'
 import CreateNewUser from './CreateNewUser';
+import Loading from './Loading';
 
 const SelectUser = ({setSelectedUser}) => {
-    const {users, addUser, deleteUser} = useContext(UsersContext);
+    const {users, loading, addUser, deleteUser} = useContext(UsersContext);
     const [optionButtonSelected, setOptionButtonSelected] = useState("");
 
     function handleClick(buttonClicked) {
@@ -35,7 +36,9 @@ const SelectUser = ({setSelectedUser}) => {
 
 
     return (
-        <section id="select-user">
+        <>
+        {loading && <Loading/>}
+        {!loading && <section id="select-user">
             <label>{optionButtonSelected === "Delete" ? "Select user you want to delete" : "Select user"}</label>
             <menu>
                 {users.map(user => {
@@ -67,7 +70,8 @@ const SelectUser = ({setSelectedUser}) => {
             {optionButtonSelected === "Create" &&
             <CreateNewUser
             setCreateNewUser={setOptionButtonSelected}/>}
-        </section>
+        </section>}
+        </>
     );
 }
  

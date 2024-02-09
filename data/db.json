@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "name": "Verneri",
+      "expenses": [
+        {
+          "time": "Friday Feburary 9 2024 17:0",
+          "expenseAmount": 55,
+          "category": "Prisma Viikki"
+        }
+      ],
+      "id": 1,
+      "currentCategorys": [
+        "Prisma Viikki"
+      ]
+    },
+    {
+      "name": "Nea",
+      "expenses": [],
+      "id": 2,
+      "currentCategorys": []
+    }
+  ]
+}
