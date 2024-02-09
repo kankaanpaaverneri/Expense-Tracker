@@ -4,21 +4,16 @@
       "name": "Verneri",
       "expenses": [
         {
-          "time": "Friday Feburary 9 2024 17:0",
-          "expenseAmount": 55,
-          "category": "Prisma Viikki"
+          "time": "Friday Feburary 9 2024 18:50",
+          "expenseAmount": 1.95,
+          "category": "Groceries"
         }
       ],
       "id": 1,
       "currentCategorys": [
-        "Prisma Viikki"
+        "No filter",
+        "Groceries"
       ]
-    },
-    {
-      "name": "Nea",
-      "expenses": [],
-      "id": 2,
-      "currentCategorys": []
     }
   ]
 }

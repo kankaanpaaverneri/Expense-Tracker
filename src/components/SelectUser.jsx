@@ -3,9 +3,10 @@ import { UsersContext } from '../UsersContext'
 import { useContext, useState, useEffect} from 'react'
 import CreateNewUser from './CreateNewUser';
 import Loading from './Loading';
+import Error from './Error';
 
 const SelectUser = ({setSelectedUser}) => {
-    const {users, loading, addUser, deleteUser} = useContext(UsersContext);
+    const {users, loading, error, addUser, deleteUser} = useContext(UsersContext);
     const [optionButtonSelected, setOptionButtonSelected] = useState("");
 
     function handleClick(buttonClicked) {
@@ -34,6 +35,9 @@ const SelectUser = ({setSelectedUser}) => {
         }
     }, [optionButtonSelected]);
 
+    if(error) {
+        return <Error error={error}/>
+    }
 
     return (
         <>

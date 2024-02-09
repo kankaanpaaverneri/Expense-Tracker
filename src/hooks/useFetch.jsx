@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { fetchGet } from "../http";
 
 export function useFetch(fetchFn) {
     const [data, setData] = useState([]);
@@ -13,12 +12,12 @@ export function useFetch(fetchFn) {
                 setData(data);
                 setLoading(() => false);
             } catch(error) {
-                console.log(error.message);
+                setLoading(() => false);
                 setError(error.message);
             }
         }
         fetchData();
     }, []);
 
-    return {data, error, loading};
+    return {data, error, setError, loading};
 }
